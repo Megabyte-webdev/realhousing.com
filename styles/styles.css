@@ -1,0 +1,268 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar-thumb{
+   
+    background-color: var(--dark-grey);
+}
+::-webkit-scrollbar{
+    width: 4px;
+    height: 6px;
+    background-color: var(--white);
+}
+:root{
+    --white: #ffffff;
+    --sec-white:#d6ebf3;
+    --black: #000000;
+    --medium-black: #333;
+    --transparent-blue: rgba(0, 0, 100, .2);
+    --light-grey: #ddd;
+    --grey: rgb(205, 204, 204);
+    --primary-blue: #0f41a5;
+    --dark-primary-blue: #072474;
+    --secondary-blue: #207fb2;
+    --tertiary-blue:#bedaf1;
+    --top: 60px;
+    --primary-width: 800px;
+}
+html,body{
+    scroll-behavior: smooth;
+}
+body{
+	position: relative;
+    width: 100vw;
+    height: 10vh;
+    overflow-x: hidden;
+    background-color: var(--sec-white);
+    font-family: Mulish, sans-serif;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 200ms;
+}
+h1,h2,h3,h4,h5,h6{
+    text-transform: capitalize;
+}
+li{
+    list-style-type: none;
+}
+button,
+input[type="submit"]{
+    background-color: var(--secondary-blue);
+    color: var(--white) ;
+    border: none;
+    outline: none;
+    padding: 15px;
+    margin: 0 10px;
+    border-radius: 3px;
+    text-transform: capitalize;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+header,
+main,
+footer{
+    width: 90%;
+    max-width: var(--primary-width);
+    margin: var(--top) auto;
+}
+nav{
+    width: 100%;
+    background: none;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+   width: 250px;
+   height: 250px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+header >h5{
+    color: var(--secondary-blue);
+}
+
+header .screen-counter{
+    color: var(--medium-black);
+}
+main h2{
+    font-size: calc(1rem + 2vmin);
+    max-width: 500px;
+    width: 80%;
+    margin: var(--top) 0;
+}
+main h2 em{
+    font-style: normal;
+    color: var(--secondary-blue);
+}
+#cards,
+#range-slider{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--secondary-blue);
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 2px solid var(--sec-white);
+    margin: 10px 0;
+    font-size: calc(5px + 90%);
+    cursor: pointer;
+    transition: all 300ms; 
+}
+.card .counter{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+}
+.card .counter input{
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    border: 2px solid var(--light-grey);
+    cursor: pointer;
+}
+.counter .minus{
+    transform: translateX(-15px);
+    border-radius: 10px 0 0 10px;
+}
+
+.counter .add{
+    transform: translateX(15px);
+    border-radius: 0px 10px 10px 0px;
+}
+.cards .card{
+    box-shadow: 2px 2px 20px var(--grey);
+}
+#flat-cards{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#flat-cards .card{
+	width: 300px;
+    height: 60px;
+}
+.card .profile{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--light-grey);   
+    position: relative;
+}
+
+.card.active{
+    transform: translatey(-2px);
+    border-color: var(--secondary-blue);
+    background-color: var(--transparent-blue);
+}
+#range-slider{
+	justify-content: space-between;
+	padding: 10px;
+}
+
+
+#range-slider span{
+	font-weight: bold;
+	padding: 10px 0;
+}
+#range-slider input::before{
+	content:"";
+	position: absolute;
+	left:0;
+	top:0;
+	bottom: 0;
+	margin: auto 0;
+	width: 25px; /* Set a specific slider handle width */
+border-radius: 4px;
+z-index: -5;
+  background: var(--secondary-blue); 
+  height: 20px;
+	
+}
+#range-slider input{
+   position: relative;
+	-webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 90%;
+  height: 10px; /* Specified height */
+  background: var(--medium-black);
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
+  border-radius: 4px;
+  background: var(--secondary-blue);
+  z-index: 10;
+  cursor: pointer; /* Cursor on hover */
+}
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+#calender input{
+	padding: 10px;
+}
+footer{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+footer .btn{
+    margin-left: auto;
+    min-width: 150px;
+}
+footer .back{
+	background: none;
+    color: black;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    .card{
+        width: 150px;
+        height: 150px;
+    }
+    
+}
