@@ -1,6 +1,6 @@
 function PageDb(){
   return [{
-	header_desc: "Reference Type",
+	header_desc: "Residence Type",
 	screen: ` <h2>Are You Looking For A <em>Home</em> Or An <em>Apartment</em>?</h2>
 
 	<div id="cards">
@@ -36,18 +36,20 @@ function PageDb(){
 	<p>Beds</p>
 	</div>
 	</div>
+
 	<h2>How many <em>bathrooms</em>?</h2>
 	<div id="flat-cards">
-
 	<div class="card">
-	<p>1 Bathroom</p>
+	<h3>1</h3> 
+	<p>Bathroom</p>
 	</div>
 	<div class="card">
-	<p>2 Bathrooms</p>
+	<h3>2</h3>
+	<p> Bathrooms</p>
 	</div>
 	<div class="card">
-
-	<p>3 Bathrooms</p>
+	<h3>3</h3>
+	<p>Bathrooms</p>
 
 	</div>
 	</div>`
@@ -64,11 +66,7 @@ function PageDb(){
 	header_desc: "Ideal move date",
 	screen: ` <h2>When would you like to move in?</h2>
 	<div id="calender">
-<input type="datetime-local"
-               id="Test_DatetimeLocal"
-               min="2024-01-01T00:00" onload="this.value=new Date()" 
-               value="2024-01-01T00:00" 
-               step="1">
+<input type="date" id="move-in-date" onload="this.value=new Date()" value="2024-10-10" step="1">
 	</div>`
 }];
 }

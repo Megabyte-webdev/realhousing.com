@@ -78,6 +78,9 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: sticky;
+    top:0;
+    z-index: -1;
 }
 
 .logo{
@@ -116,8 +119,8 @@ main h2 em{
 }
 
 .card{
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -174,6 +177,11 @@ main h2 em{
 #flat-cards .card{
 	width: 300px;
     height: 60px;
+    flex-direction: row;
+    justify-content: center;
+}
+#flat-cards .card h3{
+    margin-right: 10px;
 }
 .card .profile{
     width: 60px;
@@ -258,11 +266,106 @@ footer .back{
     color: black;
     font-weight: bold;
 }
+.container{
+    padding: 3%;
+    display: flex;
+    height: 100vh;
+    overflow-y: hidden;
+}
+.container .main{
+    flex: 1 1 50%;
+    overflow: auto;
+}
+#display-details{
+    max-width:  350px;
+    width: 98%;
+    height: max-content ;
+    margin: 5% auto;
+    padding: 10px ;
+    background-color: #072474;
+    color: white;
+    line-height: 1.5;
+}
+.container.overflow .main{
+    display: none;
+}
 
+.container.overflow #display-details{
+    display: block;                                                         
+    width: 90%;
+}
+#display-details .nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 150px;
+    background-color: var(--tertiary-blue);
+}
+#display-details .nav h1{
+    margin: 0;
+}
+
+#display-details .nav .logo{
+    height: 150px;
+    width: 150px;
+}
+#display-details .info-list{
+    max-width: 600px;
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    flex-wrap: wrap;
+}
+#display-details .info-list li{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#display-details .main-heading{
+    text-align: center;
+    word-spacing: 4px;
+    letter-spacing: 4px;
+}
+#display-details .detail-foot{
+    max-width: 600px;
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+    color: #bedaf1;
+    font-size: .95rem;
+    
+}
+#display-details .detail-foot a{
+    text-decoration: underline;
+    font-style: italic;
+	color: #ddd;
+}
+.agent{
+    display: none;
+}
+.agent.visible{
+    display: block;
+}
+
+@media screen and (max-width: 950px) {
+    .container #display-details{
+        display: none;
+    }
+ 
+}
 @media screen and (max-width: 600px) {
+    .container{
+        width: 100vw;
+        padding: 0;
+    }
+    .main{
+        width: 100%;
+    }
     .card{
         width: 150px;
         height: 150px;
     }
-    
+       
 }
