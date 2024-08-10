@@ -3,7 +3,7 @@ function PageDb(){
 	header_desc: "Residence Type",
 	screen: ` <h2>Are You Looking For A <em>Home</em> Or An <em>Apartment</em>?</h2>
 
-	<div id="cards">
+	<div id="cards" class="check">
 	<div class="card">
 	<h3 class="profile">H</h3>
 	<p>Home</p>
@@ -18,7 +18,7 @@ function PageDb(){
 	screen: `
 	<h2>How many <em>bedrooms</em> would you like?</h2>
 
-	<div id="cards">
+	<div id="cards" class="check">
 	<div class="card">
 	<h3 class="profile">S</h3>
 	<p>studio</p>
@@ -38,7 +38,7 @@ function PageDb(){
 	</div>
 
 	<h2>How many <em>bathrooms</em>?</h2>
-	<div id="flat-cards">
+	<div id="flat-cards" class="check">
 	<div class="card">
 	<h3>1</h3> 
 	<p>Bathroom</p>
@@ -56,7 +56,7 @@ function PageDb(){
 }, {
 	header_desc: "Budget Range",
 	screen: ` <h2>What is your budget</h2>
-	<div id="range-slider">
+	<div id="range-slider" class="check">
 	<span>$1000</span>
 	<span id="slide-counter">$10000</span>
 	<input type="range" name="budget" class="slider" min="1000" max="10000" value="5000">
@@ -65,7 +65,7 @@ function PageDb(){
 }, {
 	header_desc: "Ideal move date",
 	screen: ` <h2>When would you like to move in?</h2>
-	<div id="calender">
+	<div id="calender" class="check">
 <input type="date" id="move-in-date" onload="this.value=new Date()" value="2024-10-10" step="1">
 	</div>`
 }];

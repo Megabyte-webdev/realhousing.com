@@ -97,14 +97,16 @@ window.onload = () => {
 		let move_in_date = document.querySelector("#move-in-date");
 		if(move_in_date != null){
 			move_in_date.onchange=function(){
+				!this.className.match("active")&&this.classList.add("active");
 				userObj[PageDb()[pageCounter].header_desc]= this.value;
 			}
 		} 
 		if (slide_counter !== null) {
 			let range_slider = document.querySelector(".slider");
 			slide_counter.innerText = "$" + range_slider.value;
-
+			
 			range_slider.oninput = function () {
+				!this.className.match("active")&&this.classList.add("active");
 				slide_counter.innerText = "$" + this.value;
 				userObj[PageDb()[pageCounter].header_desc]= "$ " + this.value;
 				 displayHouseInfo(userObj);
@@ -122,7 +124,7 @@ window.onload = () => {
 	}
 
 	nextBtn.onclick = (e) => {
-		nextScreen(e.target);
+		validate() ? nextScreen(e.target): alert("Make a selection");
 	}
 	prevBtn.onclick = () => {
 		prevScreen();
@@ -151,28 +153,10 @@ window.onload = () => {
 	gotoScreen(pageCounter);
 
 	
-	function captureAndSendEmail() {
-		html2canvas(document.querySelector("#capture")).then(canvas => {
-			let imgData = canvas.toDataURL("image/png");
-			sendEmail(imgData);
-		});
+	function validate() {
+		let checks = document.querySelectorAll('.check');
+		const hasActive=Array.prototype.some.call(checks, check=> check.querySelector('.active') != null);
+		return hasActive;
 	}
-	function sendEmail(imageData) {
-		emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
 	
-		let templateParams = {
-			to_name: "Recipient Name",
-			from_name: "Your Name",
-			message: "Here is the screenshot",
-			attachment: imageData
-		};
-	
-		emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
-			.then(function(response) {
-				console.log("SUCCESS!", response.status, response.text);
-			}, function(error) {
-				console.log("FAILED...", error);
-			});
-	}
-
 }

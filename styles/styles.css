@@ -199,6 +199,7 @@ main h2 em{
     border-color: var(--secondary-blue);
     background-color: var(--transparent-blue);
 }
+
 #range-slider{
 	justify-content: space-between;
 	padding: 10px;
